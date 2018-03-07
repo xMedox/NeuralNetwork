@@ -13,7 +13,31 @@ public class NeuralNetwork{
 		this.numHiddenNodes = numHiddenNodes;
 		this.numOutputNodes = numOutputNodes;
 		
-		weightsIH = new Matrix(this.numHiddenNodes, 1);
-		weightsHO = new Matrix(this.numOutputNodes, 1);
+		weightsIH = new Matrix(this.numHiddenNodes, this.numInputNodes);
+		weightsHO = new Matrix(this.numOutputNodes, this.numHiddenNodes);
+		weightsIH.randomize();
+		weightsHO.randomize();
+	}
+	
+	public static void main(String[] args){
+		Matrix m = new Matrix(2, 3);
+		
+		m.randomize();
+		m.print();
+		System.out.println();
+		
+		m.multiply(2);
+		m.print();
+		System.out.println();
+		
+		Matrix m2 = new Matrix(2, 3);
+		
+		m2.randomize();
+		m2.print();
+		System.out.println();
+		
+		m.add(m2);
+		m.print();
+		System.out.println();
 	}
 }
